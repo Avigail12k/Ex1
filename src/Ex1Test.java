@@ -43,5 +43,16 @@ public class Ex1Test {
         // implement this test
     }
 
-    // Add additional test functions - test as much as you can.
+    @Test
+    void sameNumTest() {
+        assertFalse(Ex1.isNumber("2b2"));
+        assertFalse(Ex1.isNumber("3b3"));
+        assertFalse(Ex1.isNumber("4b4"));
+        assertFalse(Ex1.isNumber("5b5"));
+        assertFalse(Ex1.isNumber("6b7"));
+        assertFalse(Ex1.isNumber("7b7"));
+        assertFalse(Ex1.isNumber("8b8"));
+}
+
+
 }
