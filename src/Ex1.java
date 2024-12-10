@@ -20,9 +20,8 @@ public class Ex1 {
      * @return
      */
     public static int number2Int(String num) {
-        int ans = -1 , sum = 0;
-        if (!isNumber(num))
-        {
+        int ans = -1, sum = 0;
+        if (!isNumber(num)) {
             return ans;
 
         }
@@ -30,13 +29,11 @@ public class Ex1 {
         String n = arr[0];
         String base = arr[1];
         char numberBase = arr[1].charAt(0);
-        for (int j = arr[0].length();j>=0;j--)
-        {
-            for (int i =0; i <= arr[0].length();i++)
-            {
-                char number= arr[0].charAt(i);
-                int validNumber=index(number);
-                sum= (int) (sum + (validNumber*(Math.pow(numberBase,j))));
+        for (int j = arr[0].length(); j >= 0; j--) {
+            for (int i = 0; i <= arr[0].length(); i++) {
+                char number = arr[0].charAt(i);
+                int validNumber = index(number);
+                sum = (int) (sum + (validNumber * (Math.pow(numberBase, j))));
             }
 
         }
@@ -108,12 +105,27 @@ public class Ex1 {
      * @param base the basis [2,16]
      * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
      */
-    public static String int2Number(int num, int base)
-    {
+    public static String int2Number(int num, int base) {
         String ans = "";
-        // add your code here
-
-        ////////////////////
+        String number = Integer.toString(num);
+        String base2 = Integer.toString(base);
+        String b = "b";
+        String newNumber = number + b + base2;
+        if (!isNumber(newNumber)) {
+            return ans;
+        }
+        String s = "";
+        for (int i = 0; i <= 0; i++) {
+            int newNum = (num / base);
+            int rest = (num % base);
+            String newRest = Integer.toString(rest);
+            s += newRest;
+            if (newNum == 0) {
+                break;
+            }
+        }
+        StringBuilder reversed = new StringBuilder(s);
+        reversed.reverse();
         return ans;
     }
 
@@ -126,9 +138,10 @@ public class Ex1 {
      */
     public static boolean equals(String n1, String n2) {
         boolean ans = true;
-        // add your code here
-
-        ////////////////////
+        if (n1.equals(n2)) {
+            return ans;
+        }
+        ans = false;
         return ans;
     }
 
@@ -142,17 +155,14 @@ public class Ex1 {
      */
     public static int maxIndex(String[] arr) {
         int ans = 0;
-        String maxValue = arr[0];
-//        for (int i = 1; i <= arr.length; i++) {
-//            if (!arr[i].equals("null") && !arr[i].equals("-1") && (arr[i] > maxValue)) {
-//                maxValue = arr[i];
-//            }
-//            ans = i;
-//            return ans;
-//        }
+        for (int i = 0; i <= arr.length; i++) {
+            if (number2Int(arr[i]) < number2Int(arr[i + 1])) {
+                ans = i + 1;
+            } else {
+                ans = i;
+            }
+        }
         return ans;
 
     }
-
-
 }
