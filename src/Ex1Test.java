@@ -35,23 +35,37 @@ public class Ex1Test {
         }
     }
     @Test
-    void int2NumberTest() {
-        // implement this test
+    void int2NumberTest()
+    {
+        assertEquals("02b", Ex1.int2Number(0,2)); // The num 0
+        assertEquals("F4240b9" , Ex1.int2Number(1000000,10)); // A big number
+        assertEquals("Ab16", Ex1.int2Number(10,16)); // Char and 16 base
+        assertEquals("1b2",Ex1.int2Number(1,2));// Check number 1
     }
     @Test
-    void maxIndexTest() {
-        // implement this test
+    void maxIndexTest()
+    {
+       String[]arr1={"1b2","10bG","10bA","7b8"}; // Different values
+        assertEquals(1, Ex1.maxIndex(arr1));
+        String[]arr2={"1b2","zzbG","101bA","7b8"}; //Invalid number
+            assertEquals(2, Ex1.maxIndex(arr2));
+       String[]arr3={"1b2","1b5","1b7","1b9"} ; //Same values but not the same base
+        assertEquals(0, Ex1.maxIndex(arr3));
+       String[]arr4={"7bA"} ; //Only one element
+       assertEquals(0,Ex1.maxIndex(arr4));
     }
 
     @Test
     void sameNumTest() {
-        assertFalse(Ex1.isNumber("2b2"));
-        assertFalse(Ex1.isNumber("3b3"));
-        assertFalse(Ex1.isNumber("4b4"));
-        assertFalse(Ex1.isNumber("5b5"));
-        assertFalse(Ex1.isNumber("6b7"));
-        assertFalse(Ex1.isNumber("7b7"));
-        assertFalse(Ex1.isNumber("8b8"));
+        String n1="101bA"; //Same values, different bases
+        String n2="65bG";
+        assertFalse(Ex1.equals(n1,n2)); //True
+        String n3="10bA"; //Different values, different bases
+        String n4="7b8";
+        assertFalse(Ex1.equals(n3,n4));//False
+        String n7 ="ZZb10"; //Invalid numbers
+        String n8 = "101b10";
+        assertFalse(Ex1.equals(n7,n8));//False
 }
 
 
